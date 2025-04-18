@@ -16,6 +16,6 @@ const cardCount = 65;
     </p>
   </div>
   <div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-5 m-5">
-    {[...Array(cardCount)].map((item, index) => <Image src={Card} alt="debit card" />)}
+    {Array.from({ length: cardCount }, (_, index) => <Image src={Card} alt="debit card" />)}
   </div>
 </Layout>
