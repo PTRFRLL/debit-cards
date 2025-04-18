@@ -1,0 +1,26 @@
+---
+import Image from "astro/components/Image.astro";
+import Layout from "../layouts/Layout.astro";
+import Card from "../card.png";
+const cardCount = 65;
+---
+
+<Layout>
+  <div class="flex flex-col items-center gap-4">
+    <p class="text-center text-2xl">
+      My bank keeps sending me the same debit card.<br />
+      As of {new Date().toLocaleDateString()}, I've recieved: <strong>{cardCount} cards</strong>
+    </p>
+    <p class="text-center text-2xl">
+      <strong>Update:</strong> The cards have stopped coming. <a
+        target="_blank"
+        class="underline"
+        href="https://www.reddit.com/r/mildlyinteresting/comments/m2x83h/my_bank_sent_me_64_copies_of_the_same_debit_card/"
+        >See here</a
+      >
+    </p>
+  </div>
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-5 m-5">
+    {[...Array(cardCount)].map((item, index) => <Image src={Card} alt="debit card" />)}
+  </div>
+</Layout>
